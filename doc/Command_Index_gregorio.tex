@@ -1,0 +1,781 @@
+\section{Gregorio Controls}
+
+These functions are the ones written by Gregorio to the gtex file.
+While one could, in theory, use/change them to alter the appearance of
+elements of the score, it is far better to make your changes in the
+gabc file and let Gregorio make the changes to the gtex file.
+
+\macroname{\textbackslash begingregorioscore}{gregoriotex.tex}
+%\verb=\begingregorioscore=%tex.tex
+Macro to start a score.
+
+\macroname{\textbackslash endgregorioscore}{gregoriotex.tex}
+%\verb=\endgregorioscore=%tex.tex
+Macro to end a score.
+
+\macroname{\textbackslash greaccentus\#1\#2}{gregoriotex-signs.tex}
+%\verb=\greaccentus#1#2=%tex-signs.tex
+Macro for typesetting an accentus.
+
+\begin{argtable}
+  \#1 & character & height of episemus\\
+  \#2 & integer   & Type of glyph the episemus is attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash greacticeatechironomy}{gregoriotex.tex}
+%\verb=\greactiveatechironomy=%tex.tex
+Macro called at the beginning of the score to enable chironomy.
+
+\macroname{\textbackslash greadditionalline\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\greadditionalline#1#2#3=%tex-signs.tex
+Macro to typeset the additional line above or below the staff.
+
+\begin{argtable}
+  \#1 & special & See \nameref{EpisemusSpecial}.\\
+  \#2 & integer & The ambitus of the porrectus or porrectus flexes if the first argument is 9, 10, 11, 21, 22, 23; ignored otherwise.\\
+  \#3 & integer & Set horizontal episemus (0), horizontal episemus under a note (1), line at top of staff (2), line at bottom of staff (3), choral sign (4).\\
+\end{argtable}
+
+\macroname{\textbackslash greadjustsecondline}{gregoriotex.tex}
+%\verb=\greadjustsecondline=%didn't actually find this one in gregoriotex-write.c%tex.tex
+Macro to call before first syllable, but after \verb=\gresetinitialclef=.
+
+\macroname{\textbackslash greadjustthirdline}{gregoriotex.tex}
+\verb=\greadjustthirdline=%tex.tex
+Macro to call during the second line.
+
+\macroname{\textbackslash greaugmentumduplex\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\greaugmentumduplex#1#2#3=%tex-signs.tex
+Macro for typesetting an augmentum duplex (a pair of punctum mora)
+
+\begin{argtable}
+  \#1 & character & Height for first punctum mora.\\
+  \#2 & character & Height for second punctum mora.\\
+  \#3 & integer   & First punctum mora occurs before last note of a podatus, prorectus, or toculus resupinus (1), or not (0).\\
+\end{argtable}
+
+\macroname{\textbackslash grebarbrace\#1}{gregoriotex-signs.tex}
+%\verb=\grebarbrace#1=%tex-signs.tex
+Macro for typesetting a bar brace.
+
+\begin{argtable}
+  \#1 & integer & Type of glyph the episemus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grebarsyllable}{gregoriotex-syllable.tex}
+%\verb=\grebarsyllable=
+
+\macroname{\textbackslash grebarvepisemus\#1}{gregoriotex-signs.tex}
+%\verb=\grebarvepisemus#1=%tex-signs.tex
+Macro to typeset a vertical episemus around a bar.
+
+\begin{argtable}
+  \#1 & integer & Type of glyph the episemus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grebarvepisemusictusa\#1}{gregoriotex-signs.tex}
+%\verb=\grebarvepisemusictusa#1=%tex-signs.tex
+Macro to typeset a vertical episemus and ictus (type a) around a bar.
+
+\begin{argtable}
+  \#1 & integer & Type of glyph the episemus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grebarvepisemusictust\#1}{gregoriotex-signs.tex}
+%\verb=\grebarvepisemusictust#1=%tex-signs.tex
+Macro to typeset a vertical episemus and ictus (type t) around a bar.
+
+\begin{argtable}
+  \#1 & integer & Type of glyph the episemus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grebeginnlbarea\#1\#2}{gregoriotex.tex}
+%\verb=\grebeginnlbarea#1#2=%tex.tex
+Macro called at beginning of a no line break area.
+
+\begin{argtable}
+  \#1 & 0 & Not in the neumes.\\
+      & 1 & In the neumes.\\
+  \#2 & 0 & Call didn't come from translation centering.\\
+      & 1 & Call came from translation centering.
+\end{argtable}
+
+\macroname{\textbackslash grebeginnotes}{gregoriotex.tex}
+%\verb=\grebeginnotes=%tex.tex
+Macro to draw the staff lines.  Comes after the initial but before the clef.
+
+\macroname{\textbackslash greboldfont\#1}{gregoriotex.sty}
+%\verb=\greboldfont#1=%tex.sty, PlainTeX version in tex.tex
+Makes argument bold.  Accesses \LaTeX\ \verb=\textbf= or Plain\TeX\ \verb=\bf= as appropriate.  Corresponds to ``<b></b>'' tags in gabc.
+
+\begin{argtable}
+  \#1 & string & Text to be typeset in bold.\\
+\end{argtable}
+
+\macroname{\textbackslash grechangeclef\#1\#2\#3\#4}{gregoriotex-signs.tex}
+%\verb=\grechangeclef#1#2#3#4=%tex-signs.tex
+Macro called when key changes
+
+\begin{argtable}
+  \#1 & character & Type of new clef (c or f).\\
+  \#2 & integer   & Line of new clef.\\
+  \#3 & 0         & Print space before clef.\\
+      & 1         & Do not print space before clef.\\
+  \#4 & character & Height of flat in key (`a' for no flat).\\
+\end{argtable}
+
+\macroname{\textbackslash grecirculus\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grecirculus#1#2=%tex-signs.tex
+Macro for typesetting a circulus.
+
+\begin{argtable}
+  \#1 & character & Height of circulus.\\
+  \#2 & integer   & Type of glyph the circulus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grecolored\#1}{gregoriotex.sty}
+%\verb=\grecolored#1=%tex.sty, PlainTeX version in tex.tex
+Colors argument (a string) in \verb=gregoriocolor.=  Corresponds to ``<c></c>'' tags in gabc.  Does nothing in Plain\TeX
+
+\macroname{\textbackslash grecusto\#1}{gregoriotex-signs.tex}
+%\verb=\grecusto#1=
+Typesets a custo.
+
+\begin{argtable}
+  \#1 & character & Height of custo.\\
+\end{argtable}
+
+\macroname{\textbackslash gredagger}{gregoriotex-symbols.tex}
+%\verb=\gredagger=
+Macro to typeset a dagger (\dag).
+
+\macroname{\textbackslash grediscretionary}{}
+%\verb=\grediscretionary{}=
+
+\macroname{\textbackslash gredivisionfinalis\#1}{gregoriotex-signs.tex}
+%\verb=\gredivisiofinalis#1=%tex-signs.tex
+Macro to typeset a divisio finalis.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio finalis (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash gredivisionmaior\#1}{gregoriotex-signs.tex}
+%\verb=\gredivisiomaior#1=%tex-signs.tex
+Macro to typeset a divisio maior.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio maior (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash gredivisionminima\#1}{gregoriotex-signs.tex}
+\verb=\gredivisiominima#1=%tex-signs.tex
+Macro to typeset a divisio minima.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio minima (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash gredivisiominor\#1}{gregoriotex-signs.tex}
+\verb=\gredivisiominor#1=%tex-signs.tex
+Macro to typeset a divisio minor.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio minor (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash gredominica\#1\#2}{gregoriotex-signs.tex}
+%\verb=\gredominica#1#2=%tex-signs.tex
+Macro to typeset a dominican bar.
+
+\begin{argtable}
+  \#1 & integer & Type of dominican bar. 6--11 corresponds to types 1--6.\\
+  \#2 & code    & Macros which may happen before the skip but after the divisio minor (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greendnlbarea\#1\#2}{gregoriotex.tex}
+%\verb=\greendnlbarea#1#2=%tex.tex
+Macro called at beginning of a no line break area.
+
+\begin{argtable}
+  \#1 & 0 & Not in the neumes.\\
+      & 1 & In the neumes.\\
+  \#2 & 0 & Call didn't come from translation centering.\\
+      & 1 & Call came from translation centering.\\
+\end{argtable}
+
+\macroname{\textbackslash greendofelement\#1\#2}{gregoriotex.tex}
+%\verb=\greendofelement#1#2=%tex.tex
+Macro to end elements.
+
+\begin{argtable}
+  \#1 & 0 & Default space.\\
+      & 1 & Larger space.\\
+      & 2 & Glyph space.\\
+      & 3 & Zero-width space.\\
+  \#2 & 0 & Space is breakable.\\
+      & 1 & Space is unbreakable.\\
+\end{argtable}
+
+\macroname{\textbackslash greendofglyph\#1}{gregoriotex.tex}
+%\verb=\greendofglyph#1=%tex.tex
+Macro to end a glyph without ending the element.
+
+
+\begin{argtable}
+  \#1 & 0 & Default space.\\
+      & 1 & Zero-width space.\\
+      & 2 & Space between flat or natural and a note.\\
+      & 3 & Space between two puncta inclinata.\\
+      & 4 & Space between bivirga or trivirga.\\
+      & 5 & space between bistropha or tristropha.\\
+      & 6 & Space after a punctum mora XXX: not used yet, not so sure it is a good idea\ldots\\
+      & 7 & Space between a punctum inclinatum and a punctum inclinatum debilis.\\
+      & 8 & Space between two puncta inclinata debilis.\\
+      & 9 & Space before a punctum (or something else) and a punctum inclinatum.\\
+      & 10& Space between puncta inclinata (also debilis for now), larger ambitus (range=3rd).\\
+      & 11& Space between puncta inclinata (also debilis for now), larger ambitus (range=4th or more).\\
+\end{argtable}
+
+\macroname{\textbackslash grefinaldivisionfinalis\#1}{gregoriotex-signs.tex}
+%\verb=\grefinaldivisiofinalis#1=%tex-signs.tex
+Macro to end a line with a divisio finalis.
+
+\begin{argtable}
+  \#1 & 0 & Something does not need to be placed after the divisio finalis.\\
+      & 1 & Something needs to be placed after the divisio finalis.\\
+\end{argtable}
+
+\macroname{\textbackslash grefinaldivisiomaior\#1}{gregoriotex-signs.tex}
+%\verb=\grefinaldivisiomaior#1=%tex-signs.tex
+Macro to end a line with a divisio maior.
+
+\begin{argtable}
+  \#1 & 0 & Something does not need to be placed after the divisio maior.\\
+      & 1 & Something needs to be placed after the divisio maior.\\
+\end{argtable}
+
+\macroname{\textbackslash grefirstlinebottomspace\#1\#2}{gregoriotex.tex}
+%\verb=\grefirstlinebottomspace#1#2=%tex.tex
+Macro for additional bottom space for the first line
+
+\begin{argtable}
+  \#1 & 0 & No note below staff.\\
+      & 1 & Note below 1st line (position c).\\
+      & 2 & Note on 0th line (position b).\\
+      & 3 & Note below 0th line (position a).\\
+      & 4 & Note below 0th line (position a) with vertical episemus.\\
+  \#2 & 0 & No translation in score.\\
+      & 1 & Translation present in score.\\
+\end{argtable}
+
+\macroname{\textbackslash greflat\#1\#2}{gregoriotex-signs.tex}
+%\verb=\greflat#1#2=%tex-signs.tex
+Macro to typeset a flat.
+
+\begin{argtable}
+  \#1 & character & Height of the flat.\\
+  \#2 & 0         & No a flat for a key change.\\
+      & 1         & Indicates the a flat for a key change.\\
+\end{argtable}
+
+\macroname{\textbackslash greglyph}{gregoriotex-syllable.tex}
+%\verb=\greglyph=
+
+\macroname{\textbackslash gregorianmode\#1}{gregoriotex.tex}
+%\verb=\gregorianmode#1=%tex.tex
+If the gabc file contains a mode in the header, then this function
+places said mode as the first (top) annotation.  This function
+effectively disables \verb=\setfirstlineaboveinitial=.
+
+\begin{argtable}
+  \#1 & 1-8 & Other values are ignored (and \verb=\setfirstlineaboveinitial= should still work).\\
+\end{argtable}
+
+Bug: This macro needs to appear before \verb=\greinitial= in the gtex file but \verb=gregoriotex-write.c= places it after.
+
+\macroname{\textbackslash greorioapiversion\#1}{gregoriotex.tex}
+%\verb=\gregorioapiversion#1=%tex.tex
+Checks to see if GregorioTeX API is version specified by argument (and
+therefore compatible with the score.
+
+\begin{argtable}
+  \#1 & string & Date in format: yyyymmdd.\\
+\end{argtable}
+
+\macroname{\textbackslash grehepisemus\#1\#2\#3\#4}{gregoriotex-signs.tex}
+%\verb=\grehepisemus#1#2#3#4=%tex-signs.tex
+Macro to typeset a episemus.
+
+\begin{argtable}
+  \#1 & character & Height of the episemus.\\
+  \#2 & special   & See \nameref{EpisemusSpecial}.\\
+  \#3 & integer   & The ambitus of the porrectus or porrectus flexes if the second argument is 9, 10, 11, 21, 22, 23; ignored otherwise..\\
+  \#4 & character & Replacement for \#1 if a bridge causes a height substitution.\\
+\end{argtable}
+
+\macroname{\textbackslash grehepisemusbottom\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\grehepisemusbottom#1#2#3=%tex-signs.tex
+Macro to typeset a episemus at the bottom of a note
+
+\begin{argtable}
+  \#1 & character & Height of the episemus.\\
+  \#2 & special   & See \nameref{EpisemusSpecial}.\\
+  \#3 & integer   & The ambitus of the porrectus or porrectus flexes if the second argument is 9, 10, 11, 21, 22, 23; ignored otherwise.\\
+\end{argtable}
+
+\macroname{\textbackslash grehepisemusbridge\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\grehepisemusbridge#1#2#3=%tex-signs.tex
+Macro to typeset a bridge episemus father the last note of a glyph
+(element, syllable) if the next episemus is at the same height.
+
+\begin{argtable}
+  \#1 & character & Height of the episemus.\\
+  \#2 & special   & See \nameref{EpisemusSpecial}.\\
+  \#3 & integer   & The ambitus of the porrectus or porrectus flexes if the second argument is 9, 10, 11, 21, 22, 23; ignored otherwise.\\
+\end{argtable}
+
+\macroname{\textbackslash grehighchoralsigh\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\grehighchoralsign#1#2#3=%tex-signs.tex
+Macro for typesetting high choral signs.
+
+\begin{argtable}
+  \#1 & character & Height of the sigh.\\
+  \#2 & string    & The choral sign.\\
+  \#3 & 0 & Choral sign does not occur before last note of podatus, porrectus, or torculus resupinus.\\
+      & 1 & Choral sign occurs before last note of podatus, porrectus, or torculus resupinus.\\
+\end{argtable}
+
+\macroname{\textbackslash grehyph}{gregoriotex.tex}
+%\verb=\grehyph=%tex.tex
+Macro used for end of line hyphens.  Defaults to \verb=\grenormalhyph=.
+
+\macroname{\textbackslash greictusa\#1}{gregoriotex-signs.tex}
+%\verb=\greictusa#1=%tex-signs.tex
+Macro for typesetting an ictus (type a)
+
+\begin{argtable}
+  \#1 & integer & Type of glyph the ictus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash greictust\#1}{gregoriotex-signs.tex}
+%\verb=\greictust#1=%tex-signs.tex
+Macro for typesetting an ictus (type t)
+
+\begin{argtable}
+  \#1 & integer & Type of glyph the ictus is attached to.  See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grein}{}
+%\verb=\grein=
+
+\macroname{\textbackslash gredivisiofinalis\#1}{gregoriotex-signs.tex}
+%\verb=\greindivisiofinalis#1=%tex-signs.tex
+Macro to typeset a divisio finalis inside a syllable.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio finalis (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greindivisiomaior\#1}{gregoriotex-signs.tex}
+%\verb=\greindivisiomaior#1=%tex-signs.tex
+Macro to typeset a divisio maior inside a syllable.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio maior (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greindivisiominima\#1}{gregoriotex-signs.tex}
+%\verb=\greindivisiominima#1=%tex-signs.tex
+Macro to typeset a divisio minima inside a syllable.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio minima (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greindiviciominor\#1}{gregoriotex-signs.tex}
+%\verb=\greindivisiominor#1=%tex-signs.tex
+Macro to typeset a divisio minor inside a syllable.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the divisio minor (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greindominica\#1\#2}{gregoriotex-signs.tex}
+%\verb=\greindominica#1#2=%tex-signs.tex
+Macro to typeset a dominican bar inside a syllable.
+
+\begin{argtable}
+  \#1 & integer & Type of dominican bar. 6--11 corresponds to types 1--6.\\
+  \#2 & code & Macros which may happen before the skip but after the divisio minor (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greinitial\#1}{gregoriotex.tex}
+%\verb=\greinitial#1=%tex.tex
+Macro to set the initial in the score.
+
+\begin{argtable}
+  \#1 & character & The initial letter of the score.\\
+\end{argtable}
+
+\macroname{\textbackslash greinsertchiroline}{gregoriotex.tex}
+%\verb=\greinsertchiroline=%tex.tex
+Macro called at the beginning of a line to insert the chironomic signs.
+
+\macroname{\textbackslash greinvirgula\#1}{gregoriotex-signs.tex}
+%\verb=\greinvirgula#1=%tex-signs.tex
+Macro to typeset a virgula inside a syllable.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the virgula (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash greitalic\#1}{gregoriotex.sty}
+%\verb=\greitalic#1=%tex.sty, PlainTeX version in tex.tex
+Makes argument (a string) italic.  Accesses \LaTeX\ \verb=\textit= or
+Plain\TeX\ \verb=\it= as appropriate.  Corresponds to ``<i></i>'' tags
+in gabc.
+
+\begin{argtable}
+  \#1 & string & Text to be typeset in italic font.\\
+\end{argtable}
+
+\macroname{\textbackslash grelastofline}{gregoriotex.tex}
+%\verb=\grelastofline=%tex.tex
+Macro to set \verb=\gre@lastoflinecount= to 1 (i.e. mark that this syllable is the last of the line).
+
+\macroname{\textbackslash grelastofscore}{gregoriotex.tex}
+%\verb=\grelastofscore=%tex.tex
+Macro to mark the syllable as the last of the score.
+
+\macroname{\textbackslash grelinea\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\grelinea#1#2#3=%tex-signs.tex
+Macro for typesetting a linea.
+
+\begin{argtable}
+  \#1 & length  & Argument \#2 from greglyph. Height to raise the glyph.\\
+  \#2 & length  & Argument \#3 from greglyph. Height of the next note.\\
+  \#3 & integer & Argument \#4 from greglyph. The type of glyph.\\
+\end{argtable}
+
+\macroname{\textbackslash grelineapunctumcavum}{gregoriotex-signs.tex}
+%\verb=\grelineapunctumcavum=
+Macro to typeset a linea punctum cavum.
+
+\begin{argtable}
+  \#1 & length  & Argument \#2 from greglyph. Height to raise the glyph.\\
+  \#2 & length  & Argument \#3 from greglyph. Height of the next note.\\
+  \#3 & integer & Argument \#4 from greglyph. The type of glyph.\\
+  \#4 & code    & Macros executed before the punctum cavum is written.\\
+  \#5 & character & Argument \#5 from greglyph. The signs to typeset before the glyph..\\
+\end{argtable}
+
+\macroname{\textbackslash grelowchoralsigh\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\grelowchoralsign#1#2#3=%tex-signs.tex
+Macro for typesetting low choral signs.
+
+\begin{argtable}
+  \#1 & character & Height of the sign.\\
+  \#2 & string    & The choral sign.\\
+  \#3 & 0         & Choral sign does not occur before last note of podatus, porrectus, or torculus resupinus.\\
+      & 1         & Choral sign occurs before last note of podatus, porrectus, or torculus resupinus.\\
+\end{argtable}
+
+\macroname{\textbackslash grenatural\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grenatural#1#2=%tex-signs.tex
+Macro to typeset a natural.
+
+\begin{argtable}
+  \#1 & character & Height of the flat.\\
+  \#2 & 0         & No a flat for a key change.\\
+      & 1         & Indicates the a flat for a key change.\\
+\end{argtable}
+
+\macroname{\textbackslash grenewline}{gregoriotex.tex}
+%\verb=\grenewline=%tex.tex
+Macro to call if you want to go to the next line simply.
+
+\macroname{\textbackslash grenewlinewithspace\#1\#2\#3\#4}{gregoriotex.tex}
+%\verb=\grenewlinewithspace#1#2#3#4=%tex.tex
+Macro called to go to the next line but when there are additional vertical spaces to add
+
+\begin{argtable}
+  \#1 & 0 & No note above staff.\\
+      & 1 & Note above 4th line (position k).\\
+      & 2 & Note on 5th line (position l).\\
+      & 3 & Note above 5th line (position m).\\
+  \#2 & 0 & No note below staff.\\
+      & 1 & Note below 1st line (position c).\\
+      & 2 & note on 0th line (position b).\\
+      & 3 & Note below 0th line (position a).\\
+      & 4 & note below 0th line (position a) with vertical episemus.\\
+  \#3 & 0 & No translation.\\
+      & 1 & Translation present.\\
+  \#4 & 0 & No extra space above staff.\\
+      & 1 & Extra space above staff.\\
+\end{argtable}
+
+\macroname{\textbackslash grenewparline}{gregoriotex.tex}
+%\verb=\grenewparline=%tex.tex
+Same as \verb=\grenewline= except line is not justified.
+
+\macroname{\textbackslash grenewparlinewithspace\#1\#2\#3\#4}{gregoriotex.tex}
+%\verb=\grenewparlinewithspace#1#2#3#4=%tex.tex
+Same as \verb=\grenewlinewithspace= except line is not justified.
+
+\macroname{\textbackslash grenormalhyph}{gregoriotex.tex}
+%\verb=\grenormalhyph=%tex.tex, not actually found in gregoriotex-write.c
+Macro to typeset a normal hyphen.
+
+\macroname{\textbackslash grenoinitial}{gregoriotex.tex}
+%\verb=\grenoinitial=%tex.tex
+Macro called when no initial is being set.
+
+\macroname{\textbackslash grenormalinitial}{gregoriotex.tex}
+%\verb=\grenormalinitial=%not actually found in gregoriotex-write.c%tex.tex
+Macro to cancel a 2-line initial.
+
+\macroname{\textbackslash greoverbrace\#1\#2\#3\#4}{gregoriotex-signs.tex}
+%\verb=\greoverbrace#1#2#3#4=%tex-signs.tex
+Macro to typeset the curved brace over notes.
+
+\begin{argtable}
+  \#1 & dimension & The width.\\
+  \#2 & dimension & The vertical shift.\\
+  \#3 & dimension & The horizontal shift.\\
+  \#4 & 0         & Do not shift to the beginning of the last glyph.\\
+      & 1         & Shift to the beginning of the last glyph.\\
+\end{argtable}
+
+\macroname{\textbackslash greovercurlybrace\#1\#2\#3\#4\#5}{gregoriotex-signs.tex}
+%\verb=\greovercurlybrace#1#2#3#4#5=%tex-signs.tex
+Macro to typeset the curly brace over notes.
+
+\begin{argtable}
+  \#1 & dimension & The width.\\
+  \#2 & 0         & Do not put accent above.\\
+      & 1         & Put an accent above.\\
+  \#3 & dimension & The vertical shift.\\
+  \#4 & dimension & The horizontal shift.\\
+  \$5 & 0         & Do not shift to the beginning of the last glyph.\\
+      & 1         & Shift to the beginning of the last glyph.\\
+\end{argtable}
+
+\macroname{\textbackslash grepunctumcavum\#1\#2\#3\#4\#5}{gregoriotex-signs.tex}
+%\verb=\grepunctumcavum#1#2#3#4#5=%tex-signs.tex
+Macro to typeset a punctum cavum.
+
+\begin{argtable}
+  \#1 & length  & Argument \#2 from greglyph. Height to raise the glyph.\\
+  \#2 & length  & Argument \#3 from greglyph. Height of the next note.\\
+  \#3 & integer & Argument \#4 from greglyph. The type of glyph.\\
+  \#4 & code    & Macros executed before the punctum cavum is written.\\
+  \#5 & character & Argument \#5 from greglyph. The signs to typeset before the glyph..\\
+\end{argtable}
+
+\macroname{\textbackslash grepunctummora\#1\#2\#3\#4}{gregoriotex-signs.tex}
+%\verb=\grepunctummora#1#2#3#4=%tex-signs.tex
+Macro for typesetting punctum mora.
+
+\begin{argtable}
+  \#1 & character & Height of punctum mora.\\
+  \#2 & 1 & Go back to end of punctum.\\
+      & 2 & Shift left width of 1 punctum.\\
+      & 3 & Shift left width of 1 punctum and ambitus of 1.\\
+  \#3 & 0 & Punctum mora does not occur before last note of podatus, porrectus, or torculus resupinus.\\
+      & 1 & Punctum mora occurs before last note of podatus, porrectus, or torculus resupinus.\\
+  \#4 & 0 & No punctum inclinatum.\\
+      & 1 & Punctum inclinatum.\\
+\end{argtable}
+
+\macroname{\textbackslash grereversedoccentus\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grereversedaccentus#1#2=%tex-signs.tex
+Macro for typesetting a reversed accentus.
+
+\begin{argtable}
+  \#1 & character & Height of accentus.\\
+  \#2 & integer   & Type of glyph the accentus is attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grereversedsemicirculus\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grereversedsemicirculus#1#2=%tex-signs.tex
+Macro for typesetting a reversed semicirculus.
+
+\begin{argtable}
+  \#1 & character & Height of semicirculus.\\
+  \#2 & integer   & Type of glyph the semicirculus is attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grescorereference}{gregoriotex.tex}
+%\verb=\grescorereference=%tex.tex
+Currently does nothing.
+
+\macroname{\textbackslash gresemicirclus\#1\#2}{gregoriotex-signs.tex}
+%\verb=\gresemicirculus#1#2=%tex-signs.tex
+Macro for typesetting a semicirculus.
+
+\begin{argtable}
+  \#1 & character & Height of semicirculus.\\
+  \#2 & integer   & Type of glyph the semicirculus is attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash gresetbiginitial}{gregoriotex.tex}
+%\verb=\gresetbiginitial=%tex.tex
+Macro which indicates that a 2-line initial is desired.
+
+\macroname{\textbackslash gresetfixednexttextformat}{gregoriotex-syllable.tex}
+%\verb=\gresetfixednexttextformat=
+
+\macroname{\textbackslash gresetfixedtexformat}{gregoriotex-syllable.tex}
+%\verb=\gresetfixedtextformat=
+
+\macroname{\textbackslash gresetinitialclef\#1\#2\#3}{gregoriotex-signs.tex}
+%\verb=\gresetinitialclef#1#2#3=%tex-signs.tex
+Macro for writing initial key.
+
+\begin{argtable}
+  \#1 & character & Type of clef (c or f).\\
+  \#2 & 1-4       & Line of key.\\
+  \#3 & character & Height of flat in key (`a' for no flat).\\
+\end{argtable}
+
+\macroname{\textbackslash gresetlinesclef}{gregoriotex.tex}
+%\verb=\gresetlinesclef=%#1#2#3#4=%tex.tex
+%	possible values for <character>: c, f
+%	possible values for <integer2>: 0, 1 (1 = space before clef, 0 = no space)
+
+\macroname{\textbackslash gresettextabovelines\#1}{gregoriotex.tex}
+%\verb=\gresettextabovelines#1=
+Macro to place argument above the lines and empty\\
+\verb=\gre@currenttextabovelines= when done.
+
+\begin{argtable}
+  \#1 & string & Text to be placed above the lines.\\
+\end{argtable}
+
+\macroname{\textbackslash gresharp\#1\#2}{gregoriotex-signs.tex}
+%\verb=\gresharp#1#2=%tex-signs.tex
+Macro to typeset a sharp.
+
+\begin{argtable}
+  \#1 & character & Height of the flat.\\
+  \#2 & 0         & No a flat for a key change.\\
+      & 1         & Indicates the a flat for a key change.\\
+\end{argtable}
+
+
+\macroname{\textbackslash gresmallcaps\#1}{gregoriotex.sty}
+%\verb=\gresmallcaps#1=%tex.sty, PlainTeX version in tex.tex
+Makes argument small capitals. Accesses \LaTeX\ \verb=\textsc= or
+Plain\TeX\ \verb=\sc= as appropriate Corresponds to ``<sc></sc>'' tags
+in gabc.
+
+\begin{argtable}
+  \#1 & string & Text to be typeset in small caps font.\\
+\end{argtable}
+
+\macroname{\textbackslash grestar}{gregoriotex-symbol.tex}
+%\verb=\grestar=
+Macro to typeset an asterisk (*).
+
+\macroname{\textbackslash gresyllable}{gregoriotex-syllable.tex}
+%\verb=\gresyllable=
+
+\macroname{\textbackslash gretilde}{gregoriotex.tex}
+%\verb=\gretilde=%tex.tex
+Macro to print $\sim$.
+
+\macroname{\textbackslash gretranslationcenterend}{gregoriotex.tex}
+%\verb=\gretranslationcenterend=%tex.tex
+Macro to set \verb=\gre@mustdotranslationcenerend= to 1.
+
+\macroname{\textbackslash grett\#1}{gregoriotex.sty}
+%\verb=\grett#1=%tex.sty, PlainTeX version in tex.tex
+Makes argument typewriter font.  Accesses \LaTeX\ \verb=\texttt= or
+Plain\TeX\ \verb=\tt= as appropriate.
+
+\begin{argtable}
+  \#1 & string & Text to typeset in tt font.\\
+\end{argtable}
+
+\macroname{\textbackslash greul\#1}{gregoriotex.sty}
+%\verb=\greul#1=%tex.sty, PlainTeX version in tex.tex
+Makes argument underlined under \LaTeX\ using \verb=\underline=.  Does
+nothing in Plain\TeX.
+
+\begin{argtable}
+  \#1 & string & Text to typeset underlined.\\
+\end{argtable}
+
+\macroname{\textbackslash grevepisemus\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grevepisemus#1#2=%tex-signs.tex
+Macro for typesetting the vertical episemus.
+
+\begin{argtable}
+  \#1 & character & Height of episemus.\\
+  \#2 & integer   & Type of glyph the episemus is attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grevepisemusictusa\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grevepisemusictusa#1#2=%tex-signs.tex
+Macro for typesetting the vertical episemus and ictus (type a) on the
+same glyph.
+
+\begin{argtable}
+  \#1 & character & Height of episemus.\\
+  \#2 & integer   & Type of glyph the episemus and ictus are attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grevepisemusictust\#1\#2}{gregoriotex-signs.tex}
+%\verb=\grevepisemusictust#1#2=%tex-signs.tex
+Macro for typesetting the vertical episemus and ictus (type t) on the
+same glyph.
+
+\begin{argtable}
+  \#1 & character & Height of episemus.\\
+  \#2 & integer   & Type of glyph the episemus and ictus are attached to. See \nameref{EpisemusSpecial} argument for description of options.\\
+\end{argtable}
+
+\macroname{\textbackslash grevirgula\#1}{gregoriotex-signs.tex}
+%\verb=\grevirgula#1=%tex-signs.tex
+Macro to typeset a virgula.
+
+\begin{argtable}
+  \#1 & code & Macros which may happen before the skip but after the virgula (typically \verb=\grevepisemus=).\\
+\end{argtable}
+
+\macroname{\textbackslash grewritetranslation\#1}{gregoriotex.tex}
+%\verb=\grewritetranslation#1=%tex.tex
+Macro to typeset argument in the translation position.
+
+\begin{argtable}
+  \#1 & string & Text to typeset in the translation.\\
+\end{argtable}
+
+\macroname{\textbackslash grewritetranslationwithcenterbeginning\#1}{gregoriotex.tex}
+%\verb=\grewritetranslationwithcenterbeginning#1=%tex.tex
+Macro to typeset argument (a string) in the translation position (at
+the beginning of a line?).
+
+\begin{argtable}
+  \#1 & string & Text to typeset in the translation (at the beginning of a line).\\
+\end{argtable}
+
+\macroname{\textbackslash grezerhyph}{gregoriotex.tex}
+%\verb=\grezerhyph=%tex.tex
+Macro to typeset a zero-width hyphen (the hyphen is visible, it is
+treated as if it had 0 width though.  Used for fine tuning spacing
+(especially at line endings).
+
+\macroname{\textbackslash setgregoriofont\#1}{gregoriotex.tex}
+%\verb=\setgregoriofont#1=%tex.tex
+Macro to set the font used for the glyphs.
+
+\begin{argtable}
+  \#1 & string & gregorio; parmesan; greciliae; gregoria\\
+\end{argtable}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "UserManual"
+%%% End:
