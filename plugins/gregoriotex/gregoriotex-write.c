@@ -149,9 +149,9 @@ gregoriotex_write_score (FILE *f, gregorio_score *score)
     }
   if (score->mode != 0)
     {
-		fprintf (f, "\\gregorianmode{%d}%%\n", score->mode);
+      fprintf (f, "\\gregorianmode{%d}%%\n", score->mode);
     }
-// first we draw the initial (first letter) and the initial key
+  // first we draw the initial (first letter) and the initial key
   if (score->initial_style == NO_INITIAL)
     {
       fprintf (f, "\\grenoinitial %%\n");
