@@ -1,3 +1,4 @@
+% !TEX root = UserManual.tex
 \section{Gregoriotex Controls}
 
 These functions are the ones used by Gregoriotex internally as it
@@ -762,7 +763,7 @@ grebackgroundcolor.
 
 \macroname{\textbackslash gre@firstisalteration}{gregoriotex-signs.tex}
 %\verb=\gre@firstisalteration=%tex-signs.tex
-Count to track if the first glyph is an alteration.
+Count to track if the first glyph is an alteration (1) or not (0).
 
 \macroname{\textbackslash gre@alteration\#1\#2\#3\#4}{gregoriotex-signs.tex}
 %\verb=\gre@alteration#1#2#3#4=%tex-signs.tex
@@ -775,6 +776,68 @@ Macro to typeset an alteration (sharp, flat, or natural).
   \#4 & 0         & No flat for a key change.\\
       & 1         & Indicates a flat for a key change.\\
 \end{argtable}
+
+\macroname{\textbackslash gre@englishcentering}{gregoriotex-syllable.tex}
+Count to track if we are using english centering scheme (1), or not (0).
+
+\macroname{\textbackslash gre@newlinepenalty}{gregoriotex-spaces.tex}
+Penalty to force a break on a new line.  Default: $-10001$
+
+\macroname{\textbackslash gre@forcebreak}{gregoriotex-spaces.tex}
+Macro to set \verb=\gre@penalty= to \verb=\gre@newlinepenalty (\ie force a line break).
+
+\macroname{\textbackslash gre@nobreakpenalty}{gregoriotex-spaces.tex}
+Penalty to prevent a line break.  Default: 10001
+
+\macroname{\textbackslash gre@nobreak}{gregoriotex-spaces.tex}
+Macro to set \verb=\gre@penalty= to \verb=\gre@nobreakpenalty (\ie prevent a line break).
+
+\macroname{\textbackslash gre@nolastlinepenalty}{gregoriotex-spaces.tex}
+Called in \verb=\grenolastline=, seems deprecated.  Default: 100
+
+\macroname{\textbackslash gre@endofwordpenalty}{gregoriotex-spaces.tex}
+Penalty at the end of a syllable which is the end of a word.  Default: $-100$
+
+\macroname{\textbackslash gre@endofsyllablepenalty}{gregoriotex-spaces.tex}
+Penalty at the end of a syllable which is not the end of a word.  Default: $-50$
+
+\macroname{\textbackslash gre@endafterbarpenalty}{gregoriotex-spaces.tex}
+Penalty at the end of a syllable which is just a bar with something printed under it.  Default: $-200$
+
+\macroname{\textbackslash gre@endafterbaraltpenalty}{gregoriotex-spaces.tex}
+Penalty right after a bar with nothing printed under it.  Default: $-200$
+
+\macroname{\textbackslash gre@endofelementpenalty}{gregoriotex-spaces.tex}
+Penalty at the end of a breakable neumatic element (typically at a space between elements).  Default: $-50$
+
+\macroname{\textbackslash gre@hyphenpenalty}{gregoriotex-spaces.tex}
+Penalty used in discretionaries, for example a bar with a clef change.  It will also set \verb=\exhyphenpenalty.=.  It should be close to \verb=\gre@endafterbarpenalty= (by default they are equal).  Default: $-200$
+
+\macroname{\textbackslash gre@brokenpenalty}{gregoriotex-spaces.tex}
+The vertical penalty inserted after a break on a clef change.  Default: 0
+
+\macroname{\textbackslash gre@cancelpenalties}{gregoriotex-spaces.tex}
+Macro to cancel some penalties which are unneeded but cause problems at end of score.
+
+\macroname{\textbackslash gre@hyphenpenaltysave}{gregoriotex-spaces.tex}
+Register to store the canceled \verb=\hyphenpenalty= so that it can be restored later.
+
+\macroname{\textbackslash gre@exhyphenpenaltysave}{gregoriotex-spaces.tex}
+Register to store the canceled \verb=\exhyphenpenalty= so that it can be restored later.
+
+\macroname{\textbackslash gre@doublehyphendemeritssave}{gregoriotex-spaces.tex}
+Register to store the canceled \verb=\doublehyphendemerits= so that it can be restored later.
+
+\macroname{\textbackslash gre@finalhyphendemeritssave}{gregoriotex-spaces.tex}
+Register to store the canceled \verb=\finalhyphendemerits= so that it can be restored later.
+
+\macroname{\textbackslash gre@brokenpenaltysave}{gregoriotex-spaces.tex}
+Register to store the canceled \verb=\brokenpenalty= so that it can be restored later.
+
+\macroname{\textbackslash gre@restorepenalties}{gregoriotex-spaces.tex}
+Macro to restore the penalties canceled by \verb=\gre@cancelpenalties=.
+
+
 
 \section{Special arguments}
 

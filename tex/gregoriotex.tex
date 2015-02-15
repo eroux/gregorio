@@ -25,7 +25,7 @@
 	\input luatexbase.sty
 	\input luaotfload.sty
 	\input graphicx.sty % for \resizebox
-	\input xstring.tex
+	\input xstring.tex % for string operations
 	\def\gre@error#1{\errmessage{GregorioTeX error: #1}}
 	\def\gre@warning#1{\message{GregorioTeX warning: #1}}
 \else
@@ -33,7 +33,7 @@
 	\RequirePackage{graphicx}% for \resizebox
 	\RequirePackage{luatexbase}
 	\RequirePackage{luaotfload}
-	\RequirePackage{xstring}
+	\RequirePackage{xstring} % for string operations
 	\def\gre@error#1{\PackageError{GregorioTeX}{#1}{}}
 	\def\gre@warning#1{\PackageWarning{GregorioTeX}{#1}}
 \fi

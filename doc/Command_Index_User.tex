@@ -1,3 +1,4 @@
+% !TEX root = UserManual.tex
 \section{User Controls}
 
 These functions are available to the user to customize elements of the
@@ -457,6 +458,12 @@ Changes settings to use the alternative punctum cavum.
 \macroname{\textbackslash UseNormalPunctumCavum}{gregoriotex-signs.tex}
 %\verb=\UseNormalPunctumCavum=%tex-signs.tex
 Changes settings to use the normal punctum cavum.  Default.
+
+\macroname{\textbackslash englishcentering}{gregoriotex-syllable.tex}
+Changes settings to align syllables in the English style (center of syllable aligns with center of first glyph in neume).  Will only affect scores which do not have “centering-scheme: english;” in their gabc header.
+
+\macroname{\textbackslash defaultcentering}{gregoriotex-syllable.tex}
+Changes settings to align syllables in the Latin style (center of vowel aligns with center of first glyph in neume).  Will only affect scores which do not have “centering-scheme: english;” in their gabc header.  Default.
 
 %%% Local Variables:
 %%% mode: latex

@@ -16,7 +16,7 @@
 
 % this file contains definitions of spaces
 
-\gredeclarefileversion{gregoriotex-spaces.tex}{20130616}
+\gre@declarefileversion{gregoriotex-spaces.tex}{20130616}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% macros for tuning penalties
@@ -25,64 +25,64 @@
 %% The following macros enable users to tune penalties used in Gregorio
 
 % penalty to force a break on a new line
-\xdef\grenewlinepenalty{-10001}
-\def\greforcebreak{\grepenalty{\grenewlinepenalty}}
+\xdef\gre@newlinepenalty{-10001}
+\def\gre@forcebreak{\gre@penalty{\gre@newlinepenalty}}
 
 % penalty to prevent a line break
-\xdef\grenobreakpenalty{10001}
-\def\grenobreak{\grepenalty{\grenobreakpenalty}}
+\xdef\gre@nobreakpenalty{10001}
+\def\gre@nobreak{\gre@penalty{\gre@nobreakpenalty}}
 
 % called in \grenolastline (seems deprecated...)
-\xdef\grenolastlinepenalty{100}
+\xdef\gre@nolastlinepenalty{100}
 
 % penalty at the end of a syllable which is the end of a word
-\xdef\greendofwordpenalty{-100}
+\xdef\gre@endofwordpenalty{-100}
 
 % penalty at the end of a syllable which is not the end of a word
-\xdef\greendofsyllablepenalty{-50}
+\xdef\gre@endofsyllablepenalty{-50}
 
 % penalty at the end of a syllable which is just a bar, with something printed
 % under it
-\xdef\greendafterbarpenalty{-200}
+\xdef\gre@endafterbarpenalty{-200}
 
 % penalty right after a bar with nothing printed
-\xdef\greendafterbaraltpenalty{-200}
+\xdef\gre@endafterbaraltpenalty{-200}
 
 % penalty at the end of a breakable neumatic element (typically at a space
 % between elements)
-\xdef\greendofelementpenalty{-50}
+\xdef\gre@endofelementpenalty{-50}
 
 % hyphenpenalty will be used in discretionaries, in Gregorio this is used for
 % a bar with clef change for example. It also set \exhyphenpenalty. It should
 % be close to \greendafterbarpenalty
-\xdef\grehyphenpenalty{-200}
+\xdef\gre@hyphenpenalty{-200}
 
 % broken penalty is the vertical penalty inserted after a break on a clef change
 % I'm not sure it should be set, but it might be useful...
-\xdef\grebrokenpenalty{0}
+\xdef\gre@brokenpenalty{0}
 
 %% The following macros cancel some useless penalties, and reinstances them
 %% at the end of a score
 
-\def\grecancelpenalties{%
-	\xdef\grehyphenpenaltysave{\the\hyphenpenalty }%
-	\xdef\greexhyphenpenaltysave{\the\exhyphenpenalty }%
-	\xdef\gredoublehyphendemeritssave{\the\doublehyphendemerits }%
-	\xdef\grefinalhyphendemeritssave{\the\finalhyphendemerits }%
-	\xdef\grebrokenpenaltysave{\the\brokenpenalty }%
-	\hyphenpenalty=\grehyphenpenalty\relax %
-	\exhyphenpenalty=\grehyphenpenalty\relax %
+\def\gre@cancelpenalties{%
+	\xdef\gre@hyphenpenaltysave{\the\hyphenpenalty }%
+	\xdef\gre@exhyphenpenaltysave{\the\exhyphenpenalty }%
+	\xdef\gre@doublehyphendemeritssave{\the\doublehyphendemerits }%
+	\xdef\gre@finalhyphendemeritssave{\the\finalhyphendemerits }%
+	\xdef\gre@brokenpenaltysave{\the\brokenpenalty }%
+	\hyphenpenalty=\gre@hyphenpenalty\relax %
+	\exhyphenpenalty=\gre@hyphenpenalty\relax %
 	\doublehyphendemerits=0\relax %
 	\finalhyphendemerits=0\relax %
-	\brokenpenalty=\grebrokenpenalty\relax %
+	\brokenpenalty=\gre@brokenpenalty\relax %
 }
 
-\def\grerestorepenalties{%
-	\hyphenpenalty=\grehyphenpenaltysave %
-	\exhyphenpenalty=\greexhyphenpenaltysave %
-	\doublehyphendemerits=\gredoublehyphendemeritssave %
-	\finalhyphendemerits=\grefinalhyphendemeritssave %
-	\brokenpenalty=\grebrokenpenaltysave %
+\def\gre@restorepenalties{%
+	\hyphenpenalty=\gre@hyphenpenaltysave %
+	\exhyphenpenalty=\gre@exhyphenpenaltysave %
+	\doublehyphendemerits=\gre@doublehyphendemeritssave %
+	\finalhyphendemerits=\gre@finalhyphendemeritssave %
+	\brokenpenalty=\gre@brokenpenaltysave %
 }
 
 %% These macro enable the tuning of linepenalty, tolerance, pretolerance
